@@ -8,7 +8,7 @@ Dare la possibilità all’utente, attraverso 3 prompt(), di aggiungere un nuovo
 var studente = {
     nome: "Pinco",
     cognome: "Bianchi",
-    eta: "20"
+    eta: 20
 };
 
 for (var key in studente){
@@ -21,20 +21,31 @@ var studenti = [
     {   
         nome: "Panco",
         cognome: "Rossi",
-        eta: "21"   
+        eta: 21  
     },
     {   
         nome: "Pluto",
         cognome: "Verdi",
-        eta: "22"   
+        eta: 22  
     },
     {   
         nome: "Pippo",
         cognome: "Viola",
-        eta: "23"   
+        eta: 23 
     }
 ] 
 
+// aggiunta studente
+var addNome = prompt("Inserisci il nome dello studente");
+var addCognome = prompt("Inserisci il nome dello studente");
+var addEta = parseInt(prompt("Inserisci il nome dello studente"));
+studenti.push({
+    nome: addNome,
+    cognome: addCognome,
+    eta: addEta
+});
+
+// stampa nome e cognome di ogni studente
 var frase = "";
 for (var i = 0; i < studenti.length; i++) {
     frase += "Studente #" + (i+1) + ": ";
