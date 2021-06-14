@@ -67,9 +67,14 @@ function add() {
 
 // rimozione studente
 function remove() {
-    var toRemove = parseInt(prompt("Inserisci # dello studente da eliminare"));
-    studenti.splice((toRemove - 1), 1);
-    document.getElementById("text").innerHTML = nomeCognome();
+    if (studenti.length >= 1) {
+        var toRemove = parseInt(prompt("Inserisci # dello studente da eliminare"));
+        while (toRemove > studenti.length + 1 || toRemove < 1) {
+            toRemove = parseInt(prompt("Valore non valido: inserisci # dello studente da eliminare"));
+        }
+        studenti.splice((toRemove - 1), 1);
+        document.getElementById("text").innerHTML = nomeCognome();
+    }
 }
 
 
