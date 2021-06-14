@@ -14,3 +14,24 @@ var studente = {
 for (var key in studente){
     console.log(studente[key]);
 }
+
+var studenti = [
+    studente,
+    {   
+        nome: "Panco",
+        cognome: "Rossi",
+        eta: "21"   
+    },
+    {   
+        nome: "Pluto",
+        cognome: "Verdi",
+        eta: "22"   
+    },
+    {   
+        nome: "Pippo",
+        cognome: "Viola",
+        eta: "23"   
+    }
+] 
+
+console.log(studenti);
