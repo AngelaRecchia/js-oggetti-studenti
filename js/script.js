@@ -15,6 +15,7 @@ for (var key in studente){
     console.log(studente[key]);
 }
 
+// array di studenti
 var studenti = [
     studente,
     {   
@@ -34,4 +35,12 @@ var studenti = [
     }
 ] 
 
-console.log(studenti);
+var frase = "";
+for (var i = 0; i < studenti.length; i++) {
+    frase += "Studente #" + (i+1) + ": ";
+    for (var k in studenti[i]) {
+        if (k != "eta")  frase += studenti[i][k] + " ";
+    }
+    frase += "<br>";
+}
+document.getElementById("text").innerHTML += frase;
