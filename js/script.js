@@ -33,25 +33,43 @@ var studenti = [
         cognome: "Viola",
         eta: 23 
     }
-] 
+];
 
-// aggiunta studente
-var addNome = prompt("Inserisci il nome dello studente");
-var addCognome = prompt("Inserisci il nome dello studente");
-var addEta = parseInt(prompt("Inserisci il nome dello studente"));
-studenti.push({
-    nome: addNome,
-    cognome: addCognome,
-    eta: addEta
-});
+document.getElementById("text").innerHTML = nomeCognome();
+document.getElementById("add").addEventListener("click", add);
+document.getElementById("remove").addEventListener("click", remove);
 
 // stampa nome e cognome di ogni studente
-var frase = "";
-for (var i = 0; i < studenti.length; i++) {
-    frase += "Studente #" + (i+1) + ": ";
-    for (var k in studenti[i]) {
-        if (k != "eta")  frase += studenti[i][k] + " ";
+function nomeCognome() {
+    var frase = "";
+    for (var i = 0; i < studenti.length; i++) {
+        frase += "Studente #" + (i+1) + ": ";
+        for (var k in studenti[i]) {
+            if (k != "eta")  frase += studenti[i][k] + " ";
+        }
+        frase += "<br>";
     }
-    frase += "<br>";
+    return frase;
 }
-document.getElementById("text").innerHTML += frase;
+
+// aggiunta studente
+function add() {
+        var addNome = prompt("Inserisci il nome dello studente");
+        var addCognome = prompt("Inserisci il nome dello studente");
+        var addEta = parseInt(prompt("Inserisci il nome dello studente"));
+        studenti.push({
+            nome: addNome,
+            cognome: addCognome,
+            eta: addEta
+        });
+        document.getElementById("text").innerHTML = nomeCognome();
+}
+
+// rimozione studente
+function remove() {
+    var toRemove = parseInt(prompt("Inserisci # dello studente da eliminare"));
+    studenti.splice((toRemove - 1), 1);
+    document.getElementById("text").innerHTML = nomeCognome();
+}
+
+
